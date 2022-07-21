@@ -24,12 +24,15 @@ opt_theory = @theory a b x y  begin
     x^-1 == 1/x
     1/x * a == a/x
     # fraction rules
-    # (a/b) + (c/b) => (a+c)/b
+    (a/b) + (x/b) == (a+x)/b
+    (x/x) == 1 #if x ≂̸ 0, but don't know how to code that
     # trig functions
     sin(x)/cos(x) == tan(x)
     cos(x)/sin(x) == cot(x)
     sin(x)^2 + cos(x)^2 --> 1
     sin(2a) == 2sin(a)cos(a)
+    #sqrt Rules
+    sqrt(x) == x^(1/2)
 end
 
 
@@ -60,6 +63,7 @@ const op_costs = Dict(
     cos     => 134,
     atan    => 135,
     tan     => 156,
+    sqrt    => 100, #where do these numbers even come from? 
 )
 # TODO some operator costs are in FLOP and not in cycles!!
 

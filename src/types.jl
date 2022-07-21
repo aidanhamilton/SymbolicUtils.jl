@@ -577,7 +577,7 @@ end
 
 AbstractTrees.children(x::TreePrint) = [x.x[1], x.x[2]]
 
-print_tree(x; show_type=false, maxdepth=Inf, kw...) = print_tree(stdout, x; show_type=show_type, maxdepth=maxdepth, kw...)
+print_tree(x; show_type=false, maxdepth=2^32, kw...) = print_tree(stdout, x; show_type=show_type, maxdepth=maxdepth, kw...)
 
 function print_tree(_io::IO, x::BasicSymbolic; show_type=false, kw...)
     if isterm(x) || isadd(x) || ismul(x) || ispow(x) || isdiv(x)
